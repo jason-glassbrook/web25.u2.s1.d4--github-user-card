@@ -69,12 +69,12 @@ const followers = [
 ];
 
 // build my card
-maybe_buildCard (api , me["login"] , deck);
+maybe_buildCard (deck , api , me["login"]);
 
 // build follower cards
 followers.forEach (
   (user) => {
-    maybe_buildCard (api , user["login"] , deck)
+    maybe_buildCard (deck , api , user["login"])
   }
 );
 
@@ -82,7 +82,7 @@ followers.forEach (
   BUILDERS
 ***************************************/
 
-function maybe_buildCard (api , user , deck) {
+function maybe_buildCard (deck , api , user) {
   return (
     axios
       .get (`${api}${user}`)
