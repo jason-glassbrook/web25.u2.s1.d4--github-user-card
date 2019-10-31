@@ -69,12 +69,21 @@ const followers = [
 ];
 
 // build my card
-maybe_buildCard (deck , api , me["login"]);
+maybe_buildCard ({
+  "deck" : deck,
+  "api"  : api,
+  "user" : me,
+  "and_after_that" : () => {}
+});
 
 // build follower cards
 followers.forEach (
-  (user) => {
-    maybe_buildCard (deck , api , user["login"])
+  (el) => {
+    maybe_buildCard ({
+      "deck" : deck,
+      "api"  : api,
+      "user" : el,
+    })
   }
 );
 
@@ -82,17 +91,23 @@ followers.forEach (
   BUILDERS
 ***************************************/
 
-function maybe_buildCard (deck , api , user) {
+function maybe_buildCard (what) {
+  const {deck , api , user , and_after_that} = what;
   return (
     axios
-      .get (`${api}${user}`)
+      .get (`${api}${user["login"]}`)
       .then (function (re) {
         /// init ///
         console.log ("--- success! ---")
-        console.log (`got data for "${re.data.login}"`);
+        console.log (`got data for "${user["login"]}"`);
         ///
-        buildCard (re.data , deck);
+        buildCard (deck , re.data);
         /// exit ///
+      })
+      .then (function (re) {
+        if (and_after_that !== undefined) {
+          return (and_after_that (re));
+        }
       })
       .catch (function (re) {
         console.log ("--- uh-oh! ---")
@@ -103,7 +118,7 @@ function maybe_buildCard (deck , api , user) {
   );
 }
 
-function buildCard (data , deck) {
+function buildCard (deck , data) {
   /// make baby ///
   const card = GitHubUserCard (data);
   /// attach baby ///
