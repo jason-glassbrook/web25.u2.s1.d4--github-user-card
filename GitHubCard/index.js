@@ -4,6 +4,25 @@
   Using axios, send a GET request to the following URL (replacing the palceholder with your Github name): <https://api.github.com/users/<your name>>.
 ***********************************************************/
 
+const api = "https://api.github.com/users/"
+const me = {
+  "github" : {
+    "user-name" : "jason-glassbrook",
+  },
+};
+
+me["github"]["data"] = axios
+  .get (`${api}${me["github"]["user-name"]}`)
+  .then (function (re) {
+    console.log (re.data);
+  })
+  .catch (function (re) {
+    console.log ("--- uh-oh! ---")
+  })
+  .finally (function (re) {
+    console.log ("--- we're done here. ---")
+  });
+
 /***********************************************************
   Step 2
 ------------------------------------------------------------
