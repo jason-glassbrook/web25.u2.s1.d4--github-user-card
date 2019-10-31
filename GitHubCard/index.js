@@ -112,6 +112,13 @@ function GitHubUserCard (data) {
   userFollowers .upClass ("followers-count");
   userFollowing .upClass ("following-count");
   userBio       .upClass ("bio");
+
+  /// add static text ///
+  userLocation  .insertAdjacentText ("afterbegin" , "Location: ");
+  userProfile   .insertAdjacentText ("afterbegin" , "Profile: ");
+  userFollowers .insertAdjacentText ("afterbegin" , "Followers: ");
+  userFollowing .insertAdjacentText ("afterbegin" , "Following: ");
+  userBio       .insertAdjacentText ("afterbegin" , "Bio: ");
 }
 
 /*----------------------------------------------------------
