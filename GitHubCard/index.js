@@ -102,16 +102,16 @@ function GitHubUserCard (data) {
   );
 
   /// class it up ///
-  card      .upClass ("user card");
-  cardImage .upClass ("card-image");
-  cardInfo  .upClass ("card-info");
-  userRealName    .upClass ("name");
-  userFakeName    .upClass ("username");
-  userLocation    .upClass ("location");
-  userProfile     .upClass ("profile");
-  userFollowers   .upClass ("followers-count");
-  userFollowing   .upClass ("following-count");
-  userBio         .upClass ("bio");
+  card          .upClass ("user card");
+  cardImage     .upClass ("card-image");
+  cardInfo      .upClass ("card-info");
+  userRealName  .upClass ("name");
+  userFakeName  .upClass ("username");
+  userLocation  .upClass ("location");
+  userProfile   .upClass ("profile");
+  userFollowers .upClass ("followers-count");
+  userFollowing .upClass ("following-count");
+  userBio       .upClass ("bio");
 }
 
 /*----------------------------------------------------------
