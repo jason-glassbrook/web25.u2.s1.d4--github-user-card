@@ -73,7 +73,7 @@ maybe_buildCard ({
   "deck" : deck,
   "api"  : api,
   "user" : me,
-  "and_after_that" : () => {
+  "and_after_that" : (re) => {
     // build follower cards
     followers.forEach (
       (el) => {
@@ -90,6 +90,28 @@ maybe_buildCard ({
 /***************************************
   BUILDERS
 ***************************************/
+
+// function buildMyCard (re , and_after_that) {
+//   maybe_buildCard ({
+//     "deck" : deck,
+//     "api"  : api,
+//     "user" : me,
+//     "and_after_that" : and_after_that,
+//   });
+// }
+
+// function buildFollowersCards (re , and_after_that) {
+//   // build follower cards
+//   followers.forEach (
+//     (el) => {
+//       maybe_buildCard ({
+//         "deck" : deck,
+//         "api"  : api,
+//         "user" : el,
+//       })
+//     }
+//   );
+// }
 
 function maybe_buildCard (what) {
   const {deck , api , user , and_after_that} = what;
