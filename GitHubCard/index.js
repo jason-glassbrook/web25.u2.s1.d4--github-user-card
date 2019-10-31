@@ -69,7 +69,17 @@ const followersArray = [];
 ***********************************************************/
 
 function GitHubUserCard (data) {
-
+  const
+    card            = newElem ("div"),
+    cardImage       = newElem ("img"),
+    cardInfo        = newElem ("div"),
+    userRealName    = newElem ("h3"),
+    userFakeName    = newElem ("p"),
+    userLocation    = newElem ("p"),
+    userProfile     = newElem ("p"),
+    userProfileLink = newElem ("a"),
+    userFollowers   = newElem ("p"),
+    userFollowing   = newElem ("p");
 }
 
 /*----------------------------------------------------------
