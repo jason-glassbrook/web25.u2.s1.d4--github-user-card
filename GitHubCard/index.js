@@ -119,6 +119,20 @@ function GitHubUserCard (data) {
   userFollowers .insertAdjacentText ("afterbegin" , "Followers: ");
   userFollowing .insertAdjacentText ("afterbegin" , "Following: ");
   userBio       .insertAdjacentText ("afterbegin" , "Bio: ");
+  
+  /// add dynamic info ///
+  cardImage       .src = data.avatar_url;
+  userRealName    .insertAdjacentText ("beforeend" , data.name);
+  userFakeName    .insertAdjacentText ("beforeend" , data.login);
+  userLocation    .insertAdjacentText ("beforeend" , data.location);
+  userProfileLink .href = data.html_url;
+  userProfileLink .insertAdjacentText ("beforeend" , data.html_url);
+  userFollowers   .insertAdjacentText ("beforeend" , data.followers);
+  userFollowing   .insertAdjacentText ("beforeend" , data.following);
+  userBio         .insertAdjacentText ("beforeend" , data.bio);
+
+  /// give it back ///
+  return (card);
 }
 
 /*----------------------------------------------------------
