@@ -73,19 +73,19 @@ maybe_buildCard ({
   "deck" : deck,
   "api"  : api,
   "user" : me,
-  "and_after_that" : () => {}
-});
-
-// build follower cards
-followers.forEach (
-  (el) => {
-    maybe_buildCard ({
-      "deck" : deck,
-      "api"  : api,
-      "user" : el,
-    })
+  "and_after_that" : () => {
+    // build follower cards
+    followers.forEach (
+      (el) => {
+        maybe_buildCard ({
+          "deck" : deck,
+          "api"  : api,
+          "user" : el,
+        })
+      }
+    );
   }
-);
+});
 
 /***************************************
   BUILDERS
