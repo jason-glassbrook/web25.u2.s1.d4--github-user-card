@@ -80,7 +80,8 @@ function GitHubUserCard (data) {
     userProfile     = newElem ("p"),
     userProfileLink = newElem ("a"),
     userFollowers   = newElem ("p"),
-    userFollowing   = newElem ("p");
+    userFollowing   = newElem ("p"),
+    userBio         = newElem ("p");
   /// build structure ///
   card.append (
     cardImage,
@@ -93,9 +94,10 @@ function GitHubUserCard (data) {
     userProfile,
     userFollowers,
     userFollowing,
+    userBio,
   );
   userProfile.append (
-    userProfileLink
+    userProfileLink,
   );
 }
 
