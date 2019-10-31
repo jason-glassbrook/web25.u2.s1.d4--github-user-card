@@ -11,17 +11,17 @@ const me = {
   },
 };
 
-me["github"]["data"] = axios
-  .get (`${api}${me["github"]["user-name"]}`)
-  .then (function (re) {
-    console.log (re.data);
-  })
-  .catch (function (re) {
-    console.log ("--- uh-oh! ---")
-  })
-  .finally (function (re) {
-    console.log ("--- we're done here. ---")
-  });
+// me["github"]["data"] = axios
+//   .get (`${api}${me["github"]["user-name"]}`)
+//   .then (function (re) {
+//     console.log (re.data);
+//   })
+//   .catch (function (re) {
+//     console.log ("--- uh-oh! ---")
+//   })
+//   .finally (function (re) {
+//     console.log ("--- we're done here. ---")
+//   });
 
 /***********************************************************
   Step 2
@@ -53,7 +53,7 @@ const followersArray = [];
   Create a function that accepts a single object as its only argument, using DOM methods and properties, create a component that will return the following DOM element:
 
   <div class="card">
-    <img src={image url of user} />
+    <img class="card-image" src={image url of user} />
     <div class="card-info">
       <h3 class="name">{users name}</h3>
       <p class="username">{users user name}</p>
@@ -66,13 +66,15 @@ const followersArray = [];
       <p>Bio: {users bio}</p>
     </div>
   </div>
+***********************************************************/
 
-------------------------------------------------------------
 
+
+/*----------------------------------------------------------
   List of LS Instructors Github username's:
   - tetondan
   - dustinmyers
   - justsml
   - luishrd
   - bigknell
-***********************************************************/
+----------------------------------------------------------*/
