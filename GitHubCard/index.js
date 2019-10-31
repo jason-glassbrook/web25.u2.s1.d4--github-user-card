@@ -7,12 +7,12 @@
 const api = "https://api.github.com/users/"
 const me = {
   "github" : {
-    "user-name" : "jason-glassbrook",
+    "user_name" : "jason-glassbrook",
   },
 };
 
 // me["github"]["data"] = axios
-//   .get (`${api}${me["github"]["user-name"]}`)
+//   .get (`${api}${me["github"]["user_name"]}`)
 //   .then (function (re) {
 //     console.log (re.data);
 //   })
