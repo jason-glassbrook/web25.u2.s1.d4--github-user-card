@@ -69,6 +69,7 @@ const followersArray = [];
 ***********************************************************/
 
 function GitHubUserCard (data) {
+  /// create elements ///
   const
     card            = newElem ("div"),
     cardImage       = newElem ("img"),
@@ -80,6 +81,22 @@ function GitHubUserCard (data) {
     userProfileLink = newElem ("a"),
     userFollowers   = newElem ("p"),
     userFollowing   = newElem ("p");
+  /// build structure ///
+  card.append (
+    cardImage,
+    cardInfo,
+  );
+  cardInfo.append (
+    userRealName,
+    userFakeName,
+    userLocation,
+    userProfile,
+    userFollowers,
+    userFollowing,
+  );
+  userProfile.append (
+    userProfileLink
+  );
 }
 
 /*----------------------------------------------------------
