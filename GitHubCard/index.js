@@ -62,7 +62,7 @@ const me = {
   "login" : "jason-glassbrook",
 };
 
-
+promiseMyCard = maybe_buildCard (api , me["login"] , deck);
 
 const followers = [];
 
@@ -71,20 +71,23 @@ const followers = [];
 ***************************************/
 
 function maybe_buildCard (api , user , deck) {
-  axios.get (`${api}${user}`)
-    .then (function (re) {
-      /// init ///
-      console.log ("--- success! ---")
-      ///
-      buildCard (re.data , deck);
-      /// exit ///
-    })
-    .catch (function (re) {
-      console.log ("--- uh-oh! ---")
-    })
-    .finally (function (re) {
-      console.log ("--- we're done here. ---")
-    });
+  return (
+    axios
+      .get (`${api}${user}`)
+      .then (function (re) {
+        /// init ///
+        console.log ("--- success! ---")
+        ///
+        buildCard (re.data , deck);
+        /// exit ///
+      })
+      .catch (function (re) {
+        console.log ("--- uh-oh! ---")
+      })
+      .finally (function (re) {
+        console.log ("--- we're done here. ---")
+      })
+  );
 }
 
 function buildCard (data , deck) {
