@@ -4,6 +4,8 @@
   Using axios, send a GET request to the following URL (replacing the palceholder with your Github name): <https://api.github.com/users/<your name>>.
 ***********************************************************/
 
+const container = document.querySelector ("div.cards");
+
 const api = "https://api.github.com/users/"
 const me = {
   "github" : {
@@ -11,10 +13,10 @@ const me = {
   },
 };
 
-me["github"]["data"] = axios
-  .get (`${api}${me["github"]["login"]}`)
+axios.get (`${api}${me["github"]["login"]}`)
   .then (function (re) {
-    return (re.data);
+    console.log ("--- success! ---")
+    buildMyCard (re , container);
   })
   .catch (function (re) {
     console.log ("--- uh-oh! ---")
@@ -37,9 +39,14 @@ me["github"]["data"] = axios
   Pass the data received from Github into your function, create a new component and add it to the DOM as a child of .cards
 ***********************************************************/
 
-const container = document.querySelector ("div.cards");
-
-
+function buildMyCard (re , deck) {
+  /// store info ///
+  me["github"]["data"] = re.data
+  /// make baby ///
+  const card = GitHubUserCard (me["github"]["data"]);
+  /// attach baby ///
+  deck.append (card);
+}
 
 /***********************************************************
   Step 5
