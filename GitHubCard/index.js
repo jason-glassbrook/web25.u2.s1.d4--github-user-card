@@ -11,17 +11,17 @@ const me = {
   },
 };
 
-// me["github"]["data"] = axios
-//   .get (`${api}${me["github"]["user_name"]}`)
-//   .then (function (re) {
-//     console.log (re.data);
-//   })
-//   .catch (function (re) {
-//     console.log ("--- uh-oh! ---")
-//   })
-//   .finally (function (re) {
-//     console.log ("--- we're done here. ---")
-//   });
+me["github"]["data"] = axios
+  .get (`${api}${me["github"]["user_name"]}`)
+  .then (function (re) {
+    return (re.data);
+  })
+  .catch (function (re) {
+    console.log ("--- uh-oh! ---")
+  })
+  .finally (function (re) {
+    console.log ("--- we're done here. ---")
+  });
 
 /***********************************************************
   Step 2
@@ -36,6 +36,10 @@ const me = {
 ------------------------------------------------------------
   Pass the data received from Github into your function, create a new component and add it to the DOM as a child of .cards
 ***********************************************************/
+
+const container = document.querySelector ("div.cards");
+
+
 
 /***********************************************************
   Step 5
