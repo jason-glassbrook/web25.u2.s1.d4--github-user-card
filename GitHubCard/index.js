@@ -58,13 +58,25 @@ const deck = document.querySelector ("div.cards");
 
 const api = "https://api.github.com/users/"
 
-const me = {
-  "login" : "jason-glassbrook",
-};
+const me = {"login" : "jason-glassbrook"};
 
-promiseMyCard = maybe_buildCard (api , me["login"] , deck);
+const followers = [
+  {"login" : "tetondan"},
+  {"login" : "dustinmyers"},
+  {"login" : "justsml"},
+  {"login" : "luishrd"},
+  {"login" : "bigknell"},
+];
 
-const followers = [];
+// build my card
+maybe_buildCard (api , me["login"] , deck);
+
+// build follower cards
+followers.forEach (
+  (user) => {
+    maybe_buildCard (api , user["login"] , deck)
+  }
+);
 
 /***************************************
   BUILDERS
@@ -77,6 +89,7 @@ function maybe_buildCard (api , user , deck) {
       .then (function (re) {
         /// init ///
         console.log ("--- success! ---")
+        console.log (`got data for "${re.data.login}"`);
         ///
         buildCard (re.data , deck);
         /// exit ///
