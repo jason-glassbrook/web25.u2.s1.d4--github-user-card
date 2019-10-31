@@ -68,7 +68,9 @@ const followersArray = [];
   </div>
 ***********************************************************/
 
+function GitHubUserCard (data) {
 
+}
 
 /*----------------------------------------------------------
   List of LS Instructors Github username's:
