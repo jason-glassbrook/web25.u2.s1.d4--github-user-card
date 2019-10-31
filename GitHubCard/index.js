@@ -57,21 +57,18 @@
 const deck = document.querySelector ("div.cards");
 
 const api = "https://api.github.com/users/"
+
 const me = {
   "login" : "jason-glassbrook",
 };
+
+
+
 const followers = [];
 
 /***************************************
   BUILDERS
 ***************************************/
-
-function buildCard (re , deck) {
-  /// make baby ///
-  const card = GitHubUserCard (re.data);
-  /// attach baby ///
-  deck.append (card);
-}
 
 function maybe_buildCard (api , user , deck) {
   axios.get (`${api}${user}`)
@@ -79,7 +76,7 @@ function maybe_buildCard (api , user , deck) {
       /// init ///
       console.log ("--- success! ---")
       ///
-      buildCard (re , deck);
+      buildCard (re.data , deck);
       /// exit ///
     })
     .catch (function (re) {
@@ -88,6 +85,13 @@ function maybe_buildCard (api , user , deck) {
     .finally (function (re) {
       console.log ("--- we're done here. ---")
     });
+}
+
+function buildCard (data , deck) {
+  /// make baby ///
+  const card = GitHubUserCard (data);
+  /// attach baby ///
+  deck.append (card);
 }
 
 /***************************************
