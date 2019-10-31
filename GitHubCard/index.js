@@ -2,63 +2,15 @@
   Step 1
 ------------------------------------------------------------
   Using axios, send a GET request to the following URL (replacing the palceholder with your Github name): <https://api.github.com/users/<your name>>.
-***********************************************************/
 
-const container = document.querySelector ("div.cards");
-
-const api = "https://api.github.com/users/"
-const me = {
-  "github" : {
-    "login" : "jason-glassbrook",
-  },
-};
-
-axios.get (`${api}${me["github"]["login"]}`)
-  .then (function (re) {
-    console.log ("--- success! ---")
-    buildMyCard (re , container);
-  })
-  .catch (function (re) {
-    console.log ("--- uh-oh! ---")
-  })
-  .finally (function (re) {
-    console.log ("--- we're done here. ---")
-  });
-
-/***********************************************************
+************************************************************
   Step 2
 ------------------------------------------------------------
   Inspect and study the data coming back, this is YOUR github info! You will need to understand the structure of this data in order to use it to build your component function
 
   Skip to Step 3.
-***********************************************************/
 
-/***********************************************************
-  Step 4
-------------------------------------------------------------
-  Pass the data received from Github into your function, create a new component and add it to the DOM as a child of .cards
-***********************************************************/
-
-function buildMyCard (re , deck) {
-  /// store info ///
-  me["github"]["data"] = re.data
-  /// make baby ///
-  const card = GitHubUserCard (me["github"]["data"]);
-  /// attach baby ///
-  deck.append (card);
-}
-
-/***********************************************************
-  Step 5
-------------------------------------------------------------
-  Now that you have your own card getting added to the DOM, either follow this link in your browser <https://api.github.com/users/<Your github name>/followers>, manually find some other users' github handles, or use the list found at the bottom of the page. Get at least 5 different Github usernames and add them as individual strings to the friendsArray below.
-
-  Using that array, iterate over it, requesting data for each user, creating a new card for each user, and adding that card to the DOM.
-***********************************************************/
-
-const followersArray = [];
-
-/***********************************************************
+************************************************************
   Step 3
 ------------------------------------------------------------
   Create a function that accepts a single object as its only argument, using DOM methods and properties, create a component that will return the following DOM element:
@@ -77,7 +29,70 @@ const followersArray = [];
       <p>Bio: {users bio}</p>
     </div>
   </div>
+
+************************************************************
+  Step 4
+------------------------------------------------------------
+  Pass the data received from Github into your function, create a new component and add it to the DOM as a child of .cards
+
+************************************************************
+  Step 5
+------------------------------------------------------------
+  Now that you have your own card getting added to the DOM, either follow this link in your browser <https://api.github.com/users/<Your github name>/followers>, manually find some other users' github handles, or use the list found at the bottom of the page. Get at least 5 different Github usernames and add them as individual strings to the friendsArray below.
+
+  Using that array, iterate over it, requesting data for each user, creating a new card for each user, and adding that card to the DOM.
+------------------------------------------------------------
+  List of LS Instructors Github username's:
+  - tetondan
+  - dustinmyers
+  - justsml
+  - luishrd
+  - bigknell
 ***********************************************************/
+
+/***************************************
+  SEQUENCE
+***************************************/
+
+const deck = document.querySelector ("div.cards");
+
+const api = "https://api.github.com/users/"
+const me = {
+  "login" : "jason-glassbrook",
+};
+const followers = [];
+
+/***************************************
+  BUILDERS
+***************************************/
+
+function buildCard (re , deck) {
+  /// make baby ///
+  const card = GitHubUserCard (re.data);
+  /// attach baby ///
+  deck.append (card);
+}
+
+function maybe_buildCard (api , user , deck) {
+  axios.get (`${api}${user}`)
+    .then (function (re) {
+      /// init ///
+      console.log ("--- success! ---")
+      ///
+      buildCard (re , deck);
+      /// exit ///
+    })
+    .catch (function (re) {
+      console.log ("--- uh-oh! ---")
+    })
+    .finally (function (re) {
+      console.log ("--- we're done here. ---")
+    });
+}
+
+/***************************************
+  COMPONENTS
+***************************************/
 
 function GitHubUserCard (data) {
   /// create elements ///
@@ -145,12 +160,3 @@ function GitHubUserCard (data) {
   /// give it back ///
   return (card);
 }
-
-/*----------------------------------------------------------
-  List of LS Instructors Github username's:
-  - tetondan
-  - dustinmyers
-  - justsml
-  - luishrd
-  - bigknell
-----------------------------------------------------------*/
