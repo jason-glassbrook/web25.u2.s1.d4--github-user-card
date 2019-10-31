@@ -19,18 +19,18 @@ In this project we are going to be accessing the GitHub API and building a socia
 
 **Follow these steps to set up and work on your project:**
 
-*   [ ] Create a forked copy of this project.
-*   [ ] Add your project manager as collaborator on GitHub.
-*   [ ] Clone your ***own***  version of the repository (Not Lambda's by mistake!).
-*   [ ] Create a new branch: `git checkout -b <firstName-lastName>`.
-*   [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
-*   [ ] Push commits: `git push origin <firstName-lastName>`.
+*   [x] Create a forked copy of this project.
+*   [x] Add your project manager as collaborator on GitHub.
+*   [x] Clone your ***own***  version of the repository (Not Lambda's by mistake!).
+*   [x] Create a new branch: `git checkout -b <firstName-lastName>`.
+*   [x] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
+*   [x] Push commits: `git push origin <firstName-lastName>`.
 
 **Follow these steps for completing your project:**
 
-*   [ ] Submit a pull-request to merge your `<firstName-lastName>` branch into the `master` branch (of ***your***   repository, not Lambda's). **Please don't merge your own pull request.**
-*   [ ] Add your project manager as a reviewer on the pull-request.
-*   [ ] Your project manager will count the project as complete by merging your branch into `master`.
+*   [x] Submit a pull-request to merge your `<firstName-lastName>` branch into the `master` branch (of ***your***   repository, not Lambda's). **Please don't merge your own pull request.**
+*   [x] Add your project manager as a reviewer on the pull-request.
+*   [x] Your project manager will count the project as complete by merging your branch into `master`.
 
 ## Preprocessor Setup
 
